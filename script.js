@@ -2,11 +2,11 @@
 
 const question1 = {
     question: "What eminent scientist hosted the television show Cosmos?",
-    option1: "What eminent scientist hosted the television show Cosmos?",
+    option1: "Some dude that i will add later",
     option2: "Stephen Hawking",
     option3: "Carl Sagan",
     option4: "Albert Einstein",
-    correct: 2,
+    correct: 3,
 }
 const question2 = {
     question: "Which of these films parodied the Cold War?",
@@ -56,8 +56,11 @@ const labelOption3 = document.querySelector(".option3");
 const labelOption4 = document.querySelector(".option4");
 // all 4 options
 const options = document.querySelectorAll(".options");
+// contrainers
+const welcomeSection = document.querySelector(".welcome-page");
+const quizSection = document.querySelector(".quiz");
 
-let qIndex = 0;
+let qIndex;
 let currentQuestion = questions[qIndex];
 
 
@@ -70,4 +73,27 @@ const updateQuestion = function(q) {
     labelOption4.textContent = q.option4;
 }
 
-updateQuestion(currentQuestion)
+
+for(let i = 0; i < options.length; i++) {
+    options[i].addEventListener("click", function() {
+        const answer = Number(options[i].getAttribute("data-value"));
+        console.log(answer);
+        
+        if(answer === currentQuestion.correct) {
+            console.log("Answer correct");
+            qIndex++;
+        }
+    })
+}
+
+btnStart.addEventListener("click", function() {
+    qIndex = 0;
+
+})
+
+
+btnNext.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    updateQuestion(currentQuestion);
+})
