@@ -50,22 +50,24 @@ const btnStart = document.querySelector(".btn-start");
 const btnNext = document.querySelector(".btn-next");
 // Labels
 const labelQuestion = document.querySelector(".question");
-const labelOption1 = document.querySelector(".option1");
 const labelOption2 = document.querySelector(".option2");
+const labelOption1 = document.querySelector(".option1");
 const labelOption3 = document.querySelector(".option3");
 const labelOption4 = document.querySelector(".option4");
 // all 4 options
 const options = document.querySelectorAll(".options");
 
+let qIndex = 0;
+let currentQuestion = questions[qIndex];
 
 
-
-
-
-
-
-
-
+// updated text of questions
 const updateQuestion = function(q) {
-
+    labelQuestion.textContent = q.question;
+    labelOption1.textContent = q.option1;
+    labelOption2.textContent = q.option2;
+    labelOption3.textContent = q.option3;
+    labelOption4.textContent = q.option4;
 }
+
+updateQuestion(currentQuestion)
