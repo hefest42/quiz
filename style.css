@@ -10,20 +10,47 @@ body {
     overflow: hidden;
 }
 
+/* WELCOME SECTION */
 .welcome-page {
-    background-color: aqua;
-    width: 50%;
+    font-size: 2rem;
     height: 100vh;
     display: flex;
     justify-content: center;
 }
 
 .welcome-elements {
+    text-align: center;
     height: 20%;
+    margin-top: 350px;
 }
 
 
 .btn-start {
+    font-size: 23px;
     width: 150px;
     height: 50px;
+    margin-top: 30px;
+}
+
+.quiz {
+    text-align: center;
+}
+
+.question-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.options {
+    background-color: gray;
+    list-style: none;
+    width: 30%;
+    padding: 20px 0px;
+    margin: 20px 0px;
+    border-radius: 50px;
+}
+
+.hidden {
+    display: none;
 }
