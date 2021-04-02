@@ -60,9 +60,8 @@ const options = document.querySelectorAll(".options");
 const welcomeSection = document.querySelector(".welcome-page");
 const quizSection = document.querySelector(".quiz");
 
-let qIndex;
-let currentQuestion = questions[qIndex];
-
+let qIndex = 0;
+// let currentQuestion = questions[qIndex]
 
 // updated text of questions
 const updateQuestion = function(q) {
@@ -74,26 +73,58 @@ const updateQuestion = function(q) {
 }
 
 
-for(let i = 0; i < options.length; i++) {
-    options[i].addEventListener("click", function() {
-        const answer = Number(options[i].getAttribute("data-value"));
-        console.log(answer);
+btnNext.addEventListener("click", function() {
+    qIndex++;
+    updateQuestion(questions[qIndex])
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // starting the game / pressing the start button
+// btnStart.addEventListener("click", function() {
+//     qIndex = 0;
+//     // switching what is visable
+//     welcomeSection.classList.add("hidden");
+//     quizSection.classList.remove("hidden");
+    
+//     // update question
+//     updateQuestion(currentQuestion);
+// })
+
+
+
+// for(let i = 0; i < options.length; i++) {
+//     options[i].addEventListener("click", function() {
+//         const answer = Number(options[i].getAttribute("data-value"));
+//         console.log(answer);
         
-        if(answer === currentQuestion.correct) {
-            console.log("Answer correct");
-            qIndex++;
-        }
-    })
-}
-
-btnStart.addEventListener("click", function() {
-    qIndex = 0;
-
-})
-
-
-btnNext.addEventListener("click", function(e) {
-    e.preventDefault();
-
-    updateQuestion(currentQuestion);
-})
+//         if(answer === currentQuestion.correct) {
+//             console.log("Answer correct");
+//             qIndex++;
+//         } else {
+//             console.log("answer wrong")
+//         }
+//     })
+// }
