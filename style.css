@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100hv;
+    overflow: hidden;
+}
+
+.welcome-page {
+    background-color: aqua;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-elements {
+    height: 20%;
+}
+
+
+.btn-start {
+    width: 150px;
+    height: 50px;
+}
