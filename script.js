@@ -50,15 +50,18 @@ const btnStart = document.querySelector(".btn-start");
 const btnNext = document.querySelector(".btn-next");
 // Labels
 const labelQuestion = document.querySelector(".question");
-const labelOption2 = document.querySelector(".option2");
 const labelOption1 = document.querySelector(".option1");
+const labelOption2 = document.querySelector(".option2");
 const labelOption3 = document.querySelector(".option3");
 const labelOption4 = document.querySelector(".option4");
 // all 4 options
 const options = document.querySelectorAll(".options");
 // contrainers
+const body = document.querySelector("body");
 const welcomeSection = document.querySelector(".welcome-page");
 const quizSection = document.querySelector(".quiz");
+
+const labels = [labelOption1, labelOption2, labelOption3, labelOption4];
 
 let qIndex, correctAnswer, wrongAnswer;
 // let currentQuestion = questions[qIndex]
@@ -85,56 +88,21 @@ btnStart.addEventListener("click", function() {
 // button for next question
 btnNext.addEventListener("click", function() {
     qIndex++;
+    labelOption1.style.backgroundColor = "";
+    labelOption2.style.backgroundColor = "";
+    labelOption3.style.backgroundColor = "";
+    labelOption4.style.backgroundColor = "";
     updateQuestion(questions[qIndex])
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // starting the game / pressing the start button
-// btnStart.addEventListener("click", function() {
-//     qIndex = 0;
-//     // switching what is visable
-//     welcomeSection.classList.add("hidden");
-//     quizSection.classList.remove("hidden");
-    
-//     // update question
-//     updateQuestion(currentQuestion);
-// })
-
-
-
-// for(let i = 0; i < options.length; i++) {
-//     options[i].addEventListener("click", function() {
-//         const answer = Number(options[i].getAttribute("data-value"));
-//         console.log(answer);
-        
-//         if(answer === currentQuestion.correct) {
-//             console.log("Answer correct");
-//             qIndex++;
-//         } else {
-//             console.log("answer wrong")
-//         }
-//     })
-// }
+for (let i = 0; i < options.length; i++) {
+    options[i].addEventListener("click", function() {
+        const answer = Number(options[i].getAttribute("data-value"));
+        if(answer === questions[qIndex].correct) {
+             labels[answer - 1].style.backgroundColor = "green"
+        } else {
+            labels[answer -1].style.backgroundColor = "red"  
+        }
+    })
+}
