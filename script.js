@@ -60,7 +60,7 @@ const options = document.querySelectorAll(".options");
 const welcomeSection = document.querySelector(".welcome-page");
 const quizSection = document.querySelector(".quiz");
 
-let qIndex = 0;
+let qIndex, correctAnswer, wrongAnswer;
 // let currentQuestion = questions[qIndex]
 
 // updated text of questions
@@ -72,7 +72,17 @@ const updateQuestion = function(q) {
     labelOption4.textContent = q.option4;
 }
 
+// button to start the game
+btnStart.addEventListener("click", function() {
+    qIndex = 0;
 
+    welcomeSection.classList.add("hidden");
+    quizSection.classList.remove("hidden");
+
+    updateQuestion(questions[qIndex])
+})
+
+// button for next question
 btnNext.addEventListener("click", function() {
     qIndex++;
     updateQuestion(questions[qIndex])
